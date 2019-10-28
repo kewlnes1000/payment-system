@@ -16,11 +16,11 @@ import {
     Filter
 } from "react-admin";
 
-const PostTitle = ({ record }) => {
+const OrderTitle = ({ record }) => {
     return <span>{record ? `${record.title}` : ''}</span>;
 };
 
-const PostFilter = (props) => (
+const OrderFilter = (props) => (
     <Filter {...props}>
         <TextInput label="Search" source="q" alwaysOn />
         <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
@@ -29,8 +29,8 @@ const PostFilter = (props) => (
     </Filter>
 );
 
-export const PostList = props => (
-    <List filters={<PostFilter />} {...props}>
+export const OrderList = props => (
+    <List filters={<OrderFilter />} {...props}>
         <Datagrid>
             <TextField source="id" />
             <ReferenceField source="userId" reference="users">
@@ -42,8 +42,8 @@ export const PostList = props => (
     </List>
 );
 
-export const PostEdit = props => (
-    <Edit title={<PostTitle />} {...props}>
+export const OrderEdit = props => (
+    <Edit title={<OrderTitle />} {...props}>
         <SimpleForm>
             <DisabledInput source="id" />
             <ReferenceInput source="userId" reference="users">
@@ -55,7 +55,7 @@ export const PostEdit = props => (
     </Edit>
 );
 
-export const PostCreate = props => (
+export const OrderCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <ReferenceInput source="userId" reference="users">
