@@ -26,7 +26,7 @@ const httpClient = (url, options = {}) => {
   options.headers.set('Authorization', `Bearer ${token}`);
   return fetchUtils.fetchJson(url, options);
 }
-const dataProvider = simpleRestProvider('/api/user', httpClient);
+const dataProvider = simpleRestProvider('/api', httpClient);
 const history = createHistory();
 const theme = createMuiTheme({
   typography: {

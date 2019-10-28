@@ -33,21 +33,13 @@ export default (type, params) => {
         });
         return fetch(request)
             .then(response => {
-                if (response.status < 200 || response.status >= 300) {
-                    throw new Error(response.statusText);
-                }
-                return response.json();
-            }).then(({ status }) => {
-                console.log(status);
-                if (status === 'success') {
-
-                }
+                return Promise.resolve();
             });
     }
 
     if (type === AUTH_ERROR) {
         const status = params.status;
-        if (status === 401 || status === 403) {
+        if (status === 401 || status === 403 || status === 500) {
             localStorage.removeItem('token');
             return Promise.reject();
         }
@@ -65,8 +57,9 @@ export default (type, params) => {
         return fetch(request)
             .then(response => {
                 if (response.status < 200 || response.status >= 300) {
-                    localStorage.removeItem('token');
+                    return localStorage.removeItem('token');
                 }
+            }).then(() => {
                 return localStorage.getItem('token') ? Promise.resolve() : Promise.reject();
             });
 
