@@ -2,6 +2,8 @@ import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
 // import Snackbar from '@material-ui/core/Snackbar';
 
 export default (type, params) => {
+    console.log(type);
+
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
         const request = new Request('/api/login', {

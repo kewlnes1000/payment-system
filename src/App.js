@@ -42,9 +42,9 @@ const theme = createMuiTheme({
 });
 const App = () => (
   <Admin title="Payment System" authProvider={AuthProvider} dataProvider={dataProvider} theme={theme} catchAll={NotFound} history={history}>
-    <Resource name="v1/dashboard" options={{ label: 'Dashboard' }} list={Dashboard} icon={DashboardIcon} />
+    <Resource name="dashboard" options={{ label: 'Dashboard' }} list={Dashboard} icon={DashboardIcon} />
     <Resource name="posts" options={{ label: '贊助訂單紀錄' }} list={OrderList} edit={OrderEdit} create={OrderCreate} icon={PaymentIcon} />
-    <Resource name="v1/order" options={{ label: '贊助訂單紀錄' }} list={OrderList} edit={OrderEdit} create={OrderCreate} icon={PaymentIcon} />
+    <Resource name="order" options={{ label: '贊助訂單紀錄' }} list={OrderList} edit={OrderEdit} create={OrderCreate} icon={PaymentIcon} />
     <Resource name="v1/sqlconfig" options={{ label: '資料庫設定' }} list={UserList} icon={StorageIcon} />
     <Resource name="v1/payconfig" options={{ label: '綠界金流設定' }} list={UserList} icon={AccountBalanceIcon} />
   </Admin>

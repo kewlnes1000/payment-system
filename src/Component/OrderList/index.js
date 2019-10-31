@@ -36,7 +36,10 @@ export const OrderList = props => (
             <ReferenceField source="userId" reference="users">
                 <TextField source="name" />
             </ReferenceField>
-            <TextField source="title" />
+            <TextField source="orderno" />
+            <TextField source="ip" />
+            <TextField source="gameid" />
+            <TextField source="gamename" />
             <EditButton />
         </Datagrid>
     </List>
