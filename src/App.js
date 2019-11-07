@@ -17,6 +17,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import StorageIcon from '@material-ui/icons/Storage';
 import PaymentIcon from '@material-ui/icons/Payment';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import jsonServerProvider from 'ra-data-json-server';
 
 const httpClient = (url, options = {}) => {
   if (!options.headers) {
@@ -27,6 +28,8 @@ const httpClient = (url, options = {}) => {
   return fetchUtils.fetchJson(url, options);
 }
 const dataProvider = simpleRestProvider('/api', httpClient);
+// const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+
 const history = createHistory();
 const theme = createMuiTheme({
   typography: {
