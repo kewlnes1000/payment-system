@@ -2,10 +2,9 @@
     flex-grow: 1;
     padding-top: 5px;
 }
-.paper {
-    padding: 10px;
-    text-align: center;
-    color: "#ffffff";
-    font-size: 14px;
-    background-color: rgba(0,0,0,0.1) !important;
+.boxtitle{
+    color: rgba(255, 255, 255, 0.7);
+}
+.font{
+    font-family: "Noto Sans TC", sans-serif;
 }

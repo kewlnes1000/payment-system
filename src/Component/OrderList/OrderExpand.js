@@ -1,67 +1,99 @@
 import React from "react";
-import {
-    List,
-    Datagrid,
-    TextField,
-    ReferenceField,
-    DateField,
-    FunctionField,
-    BooleanField,
-    ReferenceManyField,
-    EditButton,
-    Show,
-    TabbedShowLayout,
-    Tab
-} from "react-admin";
-import Paper from '@material-ui/core/Paper';
+import { Show, SimpleShowLayout } from "react-admin";
 import Grid from '@material-ui/core/Grid';
 import classes from './OrderExpand.module.css';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+    typography: {
+        "fontFamily": "\"Noto Sans TC\", sans-serif",
+        "fontSize": 14,
+        "fontWeightLight": 300,
+        "fontWeightRegular": 400,
+        "fontWeightMedium": 500
+    },
+});
 
 const OrderExpand = props => (
     <Show {...props}>
-        <TabbedShowLayout>
-            <Tab label="玩家資訊">
-                <TextField label="遊戲暱稱" source="gamename" />
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <TextField className={classes.paper} label="遊戲暱稱" source="gamename" />
-
-                        <Paper className={classes.paper}>xs=12</Paper>
+        <SimpleShowLayout>
+            <MuiThemeProvider theme={theme}>
+                <Grid container spacing={2} className={classes.font}>
+                    <Grid item xs={3}>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                玩家暱稱
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.gamename}
+                            </Box>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                服務器
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.gametype}
+                            </Box>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                玩家ip
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.ip}
+                            </Box>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                到帳時間
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.donetime}
+                            </Box>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                付款方式
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.paytype}
+                            </Box>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                手續費
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.handlingfee}
+                            </Box>
+                        </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField className={classes.paper} label="遊戲ID" source="gameid" />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField className={classes.paper} label="遊戲暱稱" source="gamename" />
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Paper className={classes.paper}>xs=3</Paper>
+                        <Typography component="div" >
+                            <Box className={classes.boxtitle} fontSize="fontSize" m={1}>
+                                訂單備註
+                        </Box>
+                            <Box fontSize={16} m={1}>
+                                {props.record.remark}
+                            </Box>
+                        </Typography>
                     </Grid>
                 </Grid>
-            </Tab>
-            <Tab label="body" path="body">
-            </Tab>
-            <Tab label="Miscellaneous" path="miscellaneous">
-            </Tab>
-            <Tab label="comments" path="order">
-                <ReferenceManyField reference="order" target="id" addLabel={false}>
-                    <Datagrid>
-                        <TextField source="body" />
-                        <DateField source="created_at" />
-                        <EditButton />
-                    </Datagrid>
-                </ReferenceManyField>
-            </Tab>
-        </TabbedShowLayout>
+            </MuiThemeProvider>
+        </SimpleShowLayout>
     </Show>
 );
 
