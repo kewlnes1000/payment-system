@@ -3,9 +3,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 
-export default () => (
+export const NotFound = () => (
     <Card>
-        <CardHeader title="Welcome to the administration" />
-        <CardContent>Lorem ipsum sic dolor amet...</CardContent>
+        <CardHeader title="404 Not Found" />
+        <CardContent>Hey，You are at wrong way!!</CardContent>
     </Card>
 );
